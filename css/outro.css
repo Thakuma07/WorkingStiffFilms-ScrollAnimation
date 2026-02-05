@@ -6,6 +6,9 @@
     align-items: center;
     padding: 10vw 2rem;
     background-color: var(--base-100);
+    position: relative;
+    z-index: 5;
+    /* Above noise-overlay */
 }
 
 .outro-text {
