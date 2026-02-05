@@ -15,7 +15,7 @@
     font-family: "Grand Bold";
     width: 90%;
     max-width: 1400px;
-    font-size: 5vw;
+    font-size: 4vw;
     line-height: 0.85;
     color: var(--base-200);
     text-transform: uppercase;
@@ -45,6 +45,7 @@
     font-family: "PP Neue Montreal Bold";
     font-weight: 700;
 }
+
 /* Reveal Animation Styles */
 .reveal-container {
     display: inline-block;
