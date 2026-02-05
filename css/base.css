@@ -31,7 +31,7 @@
     /* Noise Intensity Control */
     --noise-opacity-bg: 0.07;
     /* Adjust background noise (0 to 1) */
-    --noise-opacity-img: 0.35;
+    --noise-opacity-img: 0.19;
     /* Adjust photo noise (0 to 1) */
 }
 
