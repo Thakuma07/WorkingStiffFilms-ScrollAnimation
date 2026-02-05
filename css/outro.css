@@ -45,3 +45,21 @@
     font-family: "PP Neue Montreal Bold";
     font-weight: 700;
 }
+/* Reveal Animation Styles */
+.reveal-container {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    line-height: 1.1;
+    margin-right: 0.25em;
+}
+
+.reveal-item {
+    display: inline-block;
+    will-change: transform;
+}
+
+.outro-text br {
+    display: block;
+    margin-bottom: 0.5rem;
+}
