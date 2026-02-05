@@ -200,11 +200,71 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    function initOutroAnimation() {
+        const outroText = document.querySelector(".outro-text");
+        if (!outroText) return;
+
+        // Function to wrap words in spans while preserving inner HTML structure
+        const wrapWords = (element) => {
+            const nodes = Array.from(element.childNodes);
+            element.innerHTML = "";
+
+            nodes.forEach((node) => {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    const words = node.textContent.split(/(\s+)/);
+                    words.forEach((word) => {
+                        if (word.trim().length > 0) {
+                            const container = document.createElement("span");
+                            container.className = "reveal-container";
+                            const item = document.createElement("span");
+                            item.className = "reveal-item";
+                            item.textContent = word;
+                            container.appendChild(item);
+                            element.appendChild(container);
+                        } else if (word.includes("\n") || word.includes(" ")) {
+                            element.appendChild(document.createTextNode(word));
+                        }
+                    });
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    if (node.tagName === "BR") {
+                        element.appendChild(node);
+                    } else {
+                        // For spans with classes (montreal-*), wrap the whole span as a reveal unit
+                        const container = document.createElement("span");
+                        container.className = "reveal-container";
+                        const item = node.cloneNode(true);
+                        item.classList.add("reveal-item");
+                        container.appendChild(item);
+                        element.appendChild(container);
+                    }
+                }
+            });
+        };
+
+        wrapWords(outroText);
+
+        const revealItems = outroText.querySelectorAll(".reveal-item");
+
+        gsap.from(revealItems, {
+            scrollTrigger: {
+                trigger: outroText,
+                start: "top 85%",
+                toggleActions: "play none none none",
+            },
+            y: "110%",
+            skewY: 7,
+            duration: 1.2,
+            stagger: 0.03,
+            ease: "power4.out",
+        });
+    }
+
     let resizeTimer;
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
             initTeamAnimation();
+            initOutroAnimation();
             ScrollTrigger.refresh();
         }, 250);
     });
@@ -212,4 +272,5 @@ document.addEventListener("DOMContentLoaded", () => {
     initHeroAnimation();
     initFooterAnimation();
     initTeamAnimation();
+    initOutroAnimation();
 });
