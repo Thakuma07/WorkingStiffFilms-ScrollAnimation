@@ -1,0 +1,86 @@
+@font-face {
+    font-family: "Grand Bold";
+    src: url(/fonts/GrandBold.woff2);
+}
+
+@font-face {
+    font-family: "PP Neue Montreal";
+    src: url(/fonts/PPNeueMontreal-Regular.woff2);
+}
+
+@font-face {
+    font-family: "PP Neue Montreal Bold";
+    src: url(/fonts/PPNeueMontreal-Bold.woff2);
+}
+
+@font-face {
+    font-family: "PP Neue Montreal Italic";
+    src: url(/fonts/PPNeueMontreal-Italic.woff2);
+}
+
+@font-face {
+    font-family: "PP Neue Montreal SemiBoldItalic";
+    src: url(/fonts/PPNeueMontreal-SemiBolditalic.woff2);
+}
+
+:root {
+    --base-100: #282d35;
+    --base-200: #f0ecd9;
+    --base-300: #d93535;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Grand Bold";
+    background-color: var(--base-100);
+    color: var(--base-200);
+    position: relative;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 100;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 10rem;
+    font-weight: 800;
+    line-height: 0.8;
+}
+
+p {
+    font-family: "PP Neue Montreal";
+    text-transform: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    overflow: hidden;
+    padding: 1rem;
+}

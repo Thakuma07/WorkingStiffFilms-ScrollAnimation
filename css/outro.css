@@ -1,0 +1,44 @@
+.outro {
+    height: auto;
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10vw 2rem;
+    background-color: var(--base-100);
+}
+
+.outro-text {
+    font-family: "Grand Bold";
+    width: 90%;
+    max-width: 1400px;
+    font-size: 5vw;
+    line-height: 0.85;
+    color: var(--base-200);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.montreal-italic {
+    font-family: "PP Neue Montreal Italic";
+    text-transform: lowercase;
+    font-weight: 400;
+}
+
+.montreal-small {
+    font-family: "PP Neue Montreal";
+    font-size: 0.35em;
+    vertical-align: middle;
+    margin: 0 0.5rem;
+}
+
+.montreal-italic-semibold {
+    font-family: "PP Neue Montreal SemiBoldItalic";
+    font-weight: 600;
+    font-style: italic;
+}
+
+.montreal-bold {
+    font-family: "PP Neue Montreal Bold";
+    font-weight: 700;
+}
