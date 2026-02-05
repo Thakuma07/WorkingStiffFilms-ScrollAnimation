@@ -1,17 +1,32 @@
 @font-face {
-    font-family: "Barlow Condensed";
-    src: url(/fonts/BarlowCondensed-Bold.ttf);
+    font-family: "Grand Bold";
+    src: url(/fonts/GrandBold.woff2);
 }
 
 @font-face {
-    font-family: "DM Mono";
-    src: url(/fonts/DMMono-Regular.ttf);
+    font-family: "PP Neue Montreal";
+    src: url(/fonts/PPNeueMontreal-Regular.woff2);
+}
+
+@font-face {
+    font-family: "PP Neue Montreal Bold";
+    src: url(/fonts/PPNeueMontreal-Bold.woff2);
+}
+
+@font-face {
+    font-family: "PP Neue Montreal Italic";
+    src: url(/fonts/PPNeueMontreal-Italic.woff2);
+}
+
+@font-face {
+    font-family: "PP Neue Montreal SemiBoldItalic";
+    src: url(/fonts/PPNeueMontreal-SemiBolditalic.woff2);
 }
 
 :root {
-    --base-100: #171717;
-    --base-200: #f2f5ea;
-    --base-300: #fc694c;
+    --base-100: #282d35;
+    --base-200: #f0ecd9;
+    --base-300: #d93535;
 }
 
 * {
@@ -21,9 +36,25 @@
 }
 
 body {
-    font-family: "Barlow Condensed";
+    font-family: "Grand Bold";
     background-color: var(--base-100);
     color: var(--base-200);
+    position: relative;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+    /* Simple noise pattern */
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 100;
 }
 
 img {
@@ -34,17 +65,17 @@ img {
 
 h1 {
     text-transform: uppercase;
-    font-size: 12rem;
+    font-size: 10rem;
     font-weight: 800;
     line-height: 0.8;
 }
 
 p {
-    font-family: "DM Mono";
-    text-transform: uppercase;
+    font-family: "PP Neue Montreal";
+    text-transform: none;
     font-size: 0.9rem;
     font-weight: 500;
-    line-height: 1;
+    line-height: 1.5;
 }
 
 section {
@@ -55,26 +86,119 @@ section {
     padding: 1rem;
 }
 
-.hero,
-.outro {
+.hero {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 2rem;
 }
 
-.hero h1 {
-    width: 75%;
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: -2rem;
+}
+
+.hero-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-title .line-1,
+.hero-title .line-3 {
+    font-size: 11vw;
+    color: var(--base-200);
+}
+
+.hero-title .line-2 {
     color: var(--base-300);
+    font-size: 20vw;
+    /* Scaled down for better fit */
+    margin-top: -3.5vw;
+    margin-bottom: -3.5vw;
+    z-index: 1;
+}
+
+.hero-subtext {
+    max-width: 35vw;
+    /* More precise sizing */
+    color: var(--base-200);
+    opacity: 0.8;
+    font-family: "DM Mono";
+    font-size: 1.1rem;
+    text-transform: none;
+    line-height: 1.4;
+    margin-top: 2rem;
+}
+
+.hero-footer {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    width: 100%;
+    padding: 0 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.hero-footer p {
+    font-family: "Grand Bold";
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--base-200);
 }
 
 .outro {
-    margin-top: 30rem;
+    height: auto;
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10vw 2rem;
+    background-color: var(--base-100);
 }
 
-.outro h1 {
-    width: 75%;
-    color: var(--base-300);
+.outro-text {
+    font-family: "Grand Bold";
+    width: 90%;
+    max-width: 1400px;
+    font-size: 7.5vw;
+    line-height: 0.85;
+    color: var(--base-200);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.montreal-italic {
+    font-family: "PP Neue Montreal Italic";
+    text-transform: lowercase;
+    font-weight: 400;
+}
+
+.montreal-small {
+    font-family: "PP Neue Montreal";
+    font-size: 0.35em;
+    vertical-align: middle;
+    margin: 0 0.5rem;
+}
+
+.montreal-italic-semibold {
+    font-family: "PP Neue Montreal SemiBoldItalic";
+    font-weight: 600;
+    font-style: italic;
+}
+
+.montreal-bold {
+    font-family: "PP Neue Montreal Bold";
+    font-weight: 700;
 }
 
 .team {
@@ -128,21 +252,52 @@ section {
     transform: translate(-50%, -50%);
     width: calc(100% + 4px);
     height: calc(100% + 4px);
-    padding: 2rem;
+    padding: 3rem 1.5rem 1.5rem 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     background-color: var(--base-200);
     border-radius: 1.5rem;
     will-change: transform;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.corner-hole {
+    position: absolute;
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: var(--base-100);
+    border-radius: 50%;
+}
+
+.corner-hole.top-left {
+    top: 1.5rem;
+    left: 1.5rem;
+}
+
+.corner-hole.top-right {
+    top: 1.5rem;
+    right: 1.5rem;
+}
+
+.corner-hole.bottom-left {
+    bottom: 1.5rem;
+    left: 1.5rem;
+}
+
+.corner-hole.bottom-right {
+    bottom: 1.5rem;
+    right: 1.5rem;
 }
 
 .team-member-img {
+    width: 100%;
     aspect-ratio: 1;
-    border-radius: 1rem;
-    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
     overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .team-member-info {
@@ -150,22 +305,29 @@ section {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1rem;
+    gap: 0.2rem;
+    width: 100%;
 }
 
 .team-member-info h1 {
-    font-size: 6.5rem;
+    font-size: 3.5vw;
     color: var(--base-300);
-    line-height: 0.85;
+    line-height: 0.9;
+    width: 100%;
+    white-space: nowrap;
 }
 
 .team-member-info h1 span {
     display: block;
-    font-size: 5.5rem;
+    font-size: 3vw;
+    color: var(--base-100) !important;
 }
 
 .team-member-info p {
     color: var(--base-100);
+    font-size: 0.7rem;
+    opacity: 0.7;
+    margin-bottom: 0.2rem;
 }
 
 .team-member {
