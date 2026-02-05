@@ -15,6 +15,67 @@ document.addEventListener("DOMContentLoaded", () => {
     let cardPlaceholderEntrance = null;
     let cardSlideInAnimation = null;
 
+    function initHeroAnimation() {
+        const lines = document.querySelectorAll(".hero-title span");
+        const isDesktop = window.innerWidth > 1000;
+
+        lines.forEach((line) => {
+            const text = line.textContent;
+            line.innerHTML = "";
+            [...text].forEach((char) => {
+                const charSpan = document.createElement("span");
+                charSpan.textContent = char === " " ? "\u00A0" : char;
+                charSpan.style.display = "inline-block";
+                line.appendChild(charSpan);
+            });
+
+            const chars = line.querySelectorAll("span");
+            gsap.from(chars, {
+                scrollTrigger: {
+                    trigger: line,
+                    start: "top 90%",
+                },
+                duration: isDesktop ? 2.2 : 1.2,
+                opacity: 0,
+                scale: 0,
+                y: 20,
+                rotationX: -90,
+                stagger: isDesktop ? 0.12 : 0.05,
+                ease: "elastic.out(1, 0.5)",
+                transformOrigin: "center center",
+                delay: isDesktop ? 0.3 : 0,
+            });
+        });
+
+        // Inflating effect for the subtext
+        gsap.from(".hero-subtext", {
+            scrollTrigger: {
+                trigger: ".hero-subtext",
+                start: "top 95%",
+            },
+            duration: 1.5,
+            opacity: 0,
+            y: 30,
+            ease: "power3.out",
+            delay: 0.5
+        });
+    }
+
+    function initFooterAnimation() {
+        gsap.from(".hero-footer p", {
+            scrollTrigger: {
+                trigger: ".hero-footer",
+                start: "top 100%",
+            },
+            duration: 1,
+            opacity: 0,
+            y: 20,
+            stagger: 0.2,
+            ease: "power2.out",
+            delay: 1.2
+        });
+    }
+
     function initTeamAnimation() {
         if (window.innerWidth < 1000) {
             if (cardPlaceholderEntrance) cardPlaceholderEntrance.kill();
@@ -148,5 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 250);
     });
 
+    initHeroAnimation();
+    initFooterAnimation();
     initTeamAnimation();
 });
