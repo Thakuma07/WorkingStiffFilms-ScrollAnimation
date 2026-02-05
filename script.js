@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
             end: "top top",
             scrub: 1,
             onUpdate: (self) => {
-                const progress =self.progress;
+                const progress = self.progress;
 
                 teamMembers.forEach((member, index) => {
                     const entranceDelay = 0.15;
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     const entranceEnd = entranceStart + entranceDuration;
 
                     if (progress >= entranceStart && progress <= entranceEnd) {
-                        const memberEntranceProgress = 
+                        const memberEntranceProgress =
                             (progress - entranceStart) / entranceDuration;
 
                         const entranceY = 125 - memberEntranceProgress * 125;
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         const initialLetterScaleProgress = Math.max(
                             0,
                             (memberEntranceProgress - initialLetterScaleDelay) /
-                                (1 - initialLetterScaleDelay)
+                            (1 - initialLetterScaleDelay)
                         );
                         gsap.set(teamMemberInitial, { scale: initialLetterScaleProgress });
                     } else if (progress > entranceEnd) {
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
             pin: true,
             scrub: 1,
             onUpdate: (self) => {
-                const progress =self.progress;
+                const progress = self.progress;
 
                 teamMemberCards.forEach((card, index) => {
                     const slideInStagger = 0.075;
@@ -96,14 +96,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     const xRotationEnd = xRotationStart + xRotationDuration;
 
                     if (progress >= xRotationStart && progress <= xRotationEnd) {
-                        const cardProgress = 
+                        const cardProgress =
                             (progress - xRotationStart) / xRotationDuration;
 
                         const cardInitialX = 300 - index * 100;
                         const cardTargetX = -50;
                         const cardSlideInX =
                             cardInitialX + cardProgress * (cardTargetX - cardInitialX);
-                        
+
                         const cardSlideInRotation = 20 - cardProgress * 20;
 
                         gsap.set(card, {
@@ -122,13 +122,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     const cardScaleEnd = 1;
 
                     if (progress >= cardScaleStart && progress <= cardScaleEnd) {
-                        const scaleProgress = 
+                        const scaleProgress =
                             (progress - cardScaleStart) / (cardScaleEnd - cardScaleStart);
                         const scaleValue = 0.75 + scaleProgress * 0.25;
 
                         gsap.set(card, {
                             scale: scaleValue,
-                        });                        
+                        });
                     } else if (progress > cardScaleEnd) {
                         gsap.set(card, {
                             scale: 1,
@@ -148,5 +148,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 250);
     });
 
-    initTeamAnimation();    
+    initTeamAnimation();
 });
