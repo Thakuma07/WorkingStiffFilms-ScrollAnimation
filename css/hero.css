@@ -5,6 +5,9 @@
     align-items: center;
     text-align: center;
     padding: 2rem;
+    position: relative;
+    z-index: 5;
+    /* Above noise-overlay */
 }
 
 .hero-content {
@@ -13,6 +16,8 @@
     align-items: center;
     gap: 2rem;
     margin-top: -2rem;
+    position: relative;
+    z-index: 5;
 }
 
 .hero-title {
