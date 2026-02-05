@@ -26,6 +26,8 @@
 :root {
     --base-100: #282d35;
     --base-200: #f0ecd9;
+    --base-200-deep: #e0d6b8;
+    /* Deeper version of f0ecd9 */
     --base-300: #d93535;
 
     /* Noise Intensity Control */
