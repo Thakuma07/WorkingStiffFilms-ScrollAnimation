@@ -1,6 +1,6 @@
 # AAA Tech — Crafting Comedy Since 2003
 
-![AAA Tech Hero](<img width="1920" height="1080" alt="Screenshot (238)" src="https://github.com/user-attachments/assets/d62b4349-5d55-4d04-98a2-39b0a41ce926" />)
+<img width="1920" height="1080" alt="Screenshot (238)" src="https://github.com/user-attachments/assets/d62b4349-5d55-4d04-98a2-39b0a41ce926" />
 
 A high-end, interactive landing page showcasing premium scroll-based animations and a sophisticated design aesthetic. This project leverages modern web technologies to create a seamless, engaging user experience that "wows" from the first frame to the last.
 
